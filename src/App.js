@@ -1,13 +1,16 @@
 import React from 'react';
 
-import PageHeader from './components/PageHeader/PageHeader';
+import Header from './components/Header/Header';
+import Meals from './components/Meals/Meals';
+
 
 
 const App = () => {
   return (
     <div className="App">
-      <h1>it's working!!!!</h1>
-      <PageHeader />
+      {/* <h1>it's working!!!!</h1> */}
+      <Header />
+      <Meals />
     </div>
   );
 }

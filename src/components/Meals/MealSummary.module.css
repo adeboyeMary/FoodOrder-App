@@ -1,0 +1,14 @@
+.delicious {
+    background-color: #383838;
+    color: white;
+    max-width: 50rem;
+    width: 50%;
+    margin: auto;
+    margin-top: -10rem;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 1rem;
+    
+}
