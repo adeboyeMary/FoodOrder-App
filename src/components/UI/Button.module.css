@@ -2,12 +2,12 @@
     padding: 0% 6% 0% 6%;
     margin: 2% 0% 2% 0%;
     color: white;
-    background:#4d1601;
+    /* background:#4d1601; */
     border: none;
     border-radius: 28px;
 }
 
-.button:hover,
+/* .button:hover,
 .button:active {
   background-color: #2c0d00;
-}
+} */

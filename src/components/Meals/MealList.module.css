@@ -1,0 +1,16 @@
+ .meal-li {
+    margin-left: -1%;
+    margin-right: 3%;
+
+ }
+ .meal-name{
+    font-weight:bold;
+ }
+
+.description{
+    font-style: italic;
+}
+ .meal-price{
+    font-weight: bold;
+    color: #b94517;
+ }

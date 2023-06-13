@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Button from '../UI/Button';
+import HeaderButton from './HeaderButton';
 import mealsimg from '../Media/meals.jpg';
 import styles from './Header.module.css';
 
-const PageHeader = () => {
+const Header = () => {
     return (
         <div className={styles.pagehead}>
             <header>
                 <h1>ReactMeals</h1>
-                <Button>Your Cart</Button>
+                <HeaderButton />
             </header>
             <div className={styles['img-container']}>
                 <img src={mealsimg} alt="A table full of delicious meals" />
@@ -18,4 +18,4 @@ const PageHeader = () => {
     )
 }
 
-export default PageHeader;
+export default Header;

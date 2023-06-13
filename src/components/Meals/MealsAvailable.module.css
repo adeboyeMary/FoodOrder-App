@@ -1,0 +1,10 @@
+.available {
+    width: 70%;
+    justify-items: center;
+    padding: 1px;
+    margin: 1% auto;
+}
+
+.available ul{
+    list-style-type: none;
+}
