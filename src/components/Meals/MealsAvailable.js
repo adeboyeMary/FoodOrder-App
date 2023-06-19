@@ -1,10 +1,8 @@
 import React from 'react';
 
-
 import styles from './MealsAvailable.module.css';
 import Card from '../UI/Card.js';
-// import MealItem from './MealItem';
-import MealList from './MealList';
+import MealItem from '../Meals/MealItem/MealItem';
 
 const DUMMY_MEALS = [
     {
@@ -28,27 +26,25 @@ const DUMMY_MEALS = [
     {
         id: 'a4',
         name:  'Green Bowl',
-        description: 'Healtyh... and green...',
+        description: 'Healthy... and green...',
         price: '$18.99'
     }
 ]
 
 const MealsAvailable = () => {
-    // const meals = DUMMY_MEALS;
-
-    // const onAddMeals = () => {
-    //     setMeals((prevState)=>{
-    //         return [...prevState];
-    //     })
-    // }
-
-    // const mealslist = DUMMY_MEALS.map(meals => <li>{meals.name}</li>);
-    // const mealslist = DUMMY_MEALS;
+    const mealslist = DUMMY_MEALS.map( meal => 
+        <MealItem
+            id={meal.id}
+            key={meal.id}
+            name={meal.name} 
+            description={meal.description}
+            price={meal.price} 
+        />)
 
     return (
         <section className={styles.available}>
             <Card>
-                <MealList item={DUMMY_MEALS} />
+                <ul>{mealslist}</ul>
             </Card>
         </section>
     )

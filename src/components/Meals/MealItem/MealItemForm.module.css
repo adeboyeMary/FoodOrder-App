@@ -1,0 +1,14 @@
+.form {
+    text-align: right;
+    margin-top: 10%;
+}
+
+.form button {
+    cursor: pointer;
+    background-color: #8a2b06;
+    border: 1px solid #8a2b06;
+    color: white;
+    padding: 0.35rem 1.90rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
