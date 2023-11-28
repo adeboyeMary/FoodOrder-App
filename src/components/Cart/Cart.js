@@ -1,23 +1,42 @@
-import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './Cart.module.css';
 import Modal from '../UI/Modal';
+import CartItem from './CartItem';
+import { uiActions } from '../../store/ui-slice';
+
 
 const Cart = (props) => {
-    const cartItems = <ul className={styles.cart}>{[
-        {id: 'a1', name:'Sushi', amount:'2', price:'22.99' },
-    ].map( (item) => <li>{item.name}</li>)}</ul>;
+    const dispatch = useDispatch();
+    const items = useSelector(state => state.cart.items);
+    const totalAmount = useSelector(state => state.cart.totalPrice);
+
+    const closeCartHandler = () => {
+        dispatch(uiActions.closeCart())
+    };
+
+    const cartItems = (<ul className={styles.cart}>
+        {items.map((item) =>(
+            <CartItem 
+                key={item.id}
+                item={{
+                    id: item.id,
+                    name: item.id,
+                    amount: item.amount,
+                    price: item.price }}
+            />))}
+        </ul>);
 
     return (
-        <Modal>
+        <Modal onHideOverlay={closeCartHandler}>
             {cartItems}
-            <div className={styles.tcontainer} >
+            <div className={styles.tcontainer}>
                 <span>Total Amount</span>
-                <span>12.23</span>
+                <span>${totalAmount.toFixed(2)}</span>
             </div>
             <div className={styles.actions}>
                 <button className={styles.close} 
-                    onClick={props.onHideOverlay} >Close</button>
+                    onClick={closeCartHandler}>Close</button>
                 <button className={styles.order}>Order</button>
             </div>
         </Modal>

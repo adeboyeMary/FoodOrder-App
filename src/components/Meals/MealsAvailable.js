@@ -9,36 +9,36 @@ const DUMMY_MEALS = [
         id: 'a1', 
         name: 'Sushi', 
         description: 'Finest fish and veggies',
-        price: '$22.99'
+        price: 22.99
     }, 
     {
         id: 'a2', 
         name: 'Schnitzel', 
         description: 'A german speciality!',
-        price: '$16.50'
+        price: 16.50
     },
     {
         id: 'a3',
         name:  'Barbecue and Burger',
         description: 'American, raw, meaty',
-        price: '$12.99'
+        price: 12.99
     },
     {
         id: 'a4',
         name:  'Green Bowl',
         description: 'Healthy... and green...',
-        price: '$18.99'
+        price: 18.99
     }
 ]
 
 const MealsAvailable = () => {
-    const mealslist = DUMMY_MEALS.map( meal => 
+    const mealslist = DUMMY_MEALS.map(item => 
         <MealItem
-            id={meal.id}
-            key={meal.id}
-            name={meal.name} 
-            description={meal.description}
-            price={meal.price} 
+            id={item.id}
+            key={item.id}
+            name={item.name} 
+            description={item.description}
+            price={item.price} 
         />)
 
     return (

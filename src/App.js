@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import {Fragment} from 'react';
+import { useSelector } from 'react-redux';
 
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
@@ -6,24 +7,20 @@ import Cart from './components/Cart/Cart';
 
 
 const App = (props) => {
-  const [itsShowing, setItsShowing] = useState(false);
+  const showCart = useSelector(state => state.ui.showCart);
+  // const closeCart = useSelector(state => state.ui.showCart);
 
-  const showOverlayHandler = () => {
-    setItsShowing(true);
-  }
-
-  const hideOverlayHandler = () => {
-    setItsShowing(false);
-  }
 
   return (
-    <div className="App">
-      { itsShowing && <Cart onHideOverlay={hideOverlayHandler} /> }
-      <Header onShowOverlay={showOverlayHandler} />
+    <Fragment>
+      {!showCart && <Cart /> }
+      
+      {/* <Header onShowOverlay={showOverlayHandler} /> */}
+      <Header/>
       <main>
         <Meals />
       </main>
-    </div>
+    </Fragment>
   );
 }
 
