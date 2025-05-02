@@ -1,8 +1,8 @@
-.pagehead {
+.pageHead {
     box-sizing: border-box;
 }
 
-.pagehead header{
+.pageHead header{
     position: fixed;
     display: flex;
     flex-direction: row;
