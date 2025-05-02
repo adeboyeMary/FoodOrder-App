@@ -1,14 +1,25 @@
-import React from 'react';
+import {Fragment} from 'react';
+import { useSelector } from 'react-redux';
 
-import PageHeader from './components/PageHeader/PageHeader';
+import Header from './components/Layout/Header';
+import Meals from './components/Meals/Meals';
+import Cart from './components/Cart/Cart';
 
 
-const App = () => {
+const App = (props) => {
+  const showCart = useSelector(state => state.ui.showCart);
+
+
   return (
-    <div className="App">
-      <h1>it's working!!!!</h1>
-      <PageHeader />
-    </div>
+    <Fragment>
+      {!showCart && <Cart /> }
+      {/* <Cart /> */}
+      {/* <Header onShowOverlay={showOverlayHandler} /> */}
+      <Header/>
+      <main>
+        <Meals />
+      </main>
+    </Fragment>
   );
 }
 
