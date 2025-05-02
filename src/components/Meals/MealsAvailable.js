@@ -14,7 +14,7 @@ const DUMMY_MEALS = [
     {
         id: 'a2', 
         name: 'Schnitzel', 
-        description: 'A german speciality!',
+        description: 'A german specialty!',
         price: 16.50
     },
     {
@@ -32,7 +32,7 @@ const DUMMY_MEALS = [
 ]
 
 const MealsAvailable = () => {
-    const mealslist = DUMMY_MEALS.map(item => 
+    const mealsList = DUMMY_MEALS.map(item => 
         <MealItem
             id={item.id}
             key={item.id}
@@ -44,7 +44,7 @@ const MealsAvailable = () => {
     return (
         <section className={styles.available}>
             <Card>
-                <ul>{mealslist}</ul>
+                <ul>{mealsList}</ul>
             </Card>
         </section>
     )

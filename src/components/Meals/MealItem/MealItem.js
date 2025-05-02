@@ -5,7 +5,7 @@ import MealItemForm from './MealItemForm';
 
 
 const MealItem = (props) => {
-    const {name, price, description} = props;
+    const {name, price, description, id} = props;
 
 
     return (
@@ -22,7 +22,7 @@ const MealItem = (props) => {
                 </div>
             </div>
             <div>
-                <MealItemForm  />
+                <MealItemForm  id={id} name={name} price={price} />
             </div>
         </li>
     );

@@ -1,68 +1,47 @@
-import React, {useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 
 import styles from './MealItemForm.module.css';
-import { cartActions } from '../../../store/cart-slice';
-
+import { cartActions } from '../../../store/cartSlice';
 
 
 const MealItemForm = (props) => {
     const dispatch = useDispatch();
+    const [enteredQuality, setEnteredQuality] = useState(1);
+    const [cart, setCart] = useState([]);
 
     const {name, price, id} = props;
-
-    const [isAmountValid, setIsAmountValid] = useState(true);
-    const amountInputRef = useRef();
-
+    const inputChangeHandler = (event) => {
+        setEnteredQuality(event.target.value);
+    };
     
     const submitHandler = (event) => {
         event.preventDefault();
+        console.log(props, "------items going into cart-----");
 
-        dispatch(cartActions.addToCart(
+        dispatch(cartActions.addToCart({
             id,
             price,
             name
+        }
         ))
-
-        const enteredAmount = amountInputRef.current.value;
-        const enteredAmountNumber = +enteredAmount;
-
-        if(enteredAmount.trim().length === 0 || 
-            enteredAmountNumber < 1 || 
-            enteredAmountNumber > 5){
-                setIsAmountValid(false);
-                return;
-            };
-
-            props.addItemHandler(enteredAmountNumber);
+        setCart([...cart, enteredQuality]);
+        setEnteredQuality(1);
     };
 
     return(
-        <form className={styles.form} onSubmit={submitHandler}>
+        <form className={styles.form}>
             <div className={styles.input}>
-                <label htmlFor='amount'>Amount</label>
+                <label htmlFor='amount'>Quantity</label>
                 <input 
                     type='number' id='amount'
-                    step='1' min='1' 
-                    max='5' defaultValue='1' 
+                    step='1' min='1' max='5' 
+                    defaultValue='1' 
+                    onChange={inputChangeHandler}
                 ></input>
             </div>
-            
-
-            {/* <Input 
-                ref={amountInputRef} 
-                label='Amount' 
-                input={{
-                    id: 'amount_' + props.id,  
-                    type: 'number',
-                    min: '1',
-                    max:'5',
-                    step: '1',
-                    defaultValue: '1', 
-            }} /> */}
-            <button>+ Add</button>
-            {!isAmountValid && <p>Enter a valid amount(1-5).</p>}
+            <button onClick={submitHandler}>+ Add</button>
         </form>
     )
 }

@@ -9,30 +9,35 @@ import { uiActions } from '../../store/ui-slice';
 const Cart = (props) => {
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.items);
-    const totalAmount = useSelector(state => state.cart.totalPrice);
+    const totalPrice = useSelector(state => state.cart.total);
+
 
     const closeCartHandler = () => {
         dispatch(uiActions.closeCart())
     };
 
-    const cartItems = (<ul className={styles.cart}>
-        {items.map((item) =>(
-            <CartItem 
-                key={item.id}
-                item={{
-                    id: item.id,
-                    name: item.id,
-                    amount: item.amount,
-                    price: item.price }}
-            />))}
-        </ul>);
+    console.log(items, '-----cart items-----')
+    console.log(totalPrice, '------test total------');
 
     return (
         <Modal onHideOverlay={closeCartHandler}>
-            {cartItems}
-            <div className={styles.tcontainer}>
-                <span>Total Amount</span>
-                <span>${totalAmount.toFixed(2)}</span>
+            <ul className={styles.cart}>
+                {items.map(item => 
+                    <CartItem  
+                        key={item.id}
+                        id={item.id}
+                        name={item.name}
+                        amount={item.amount}
+                        quantity={item.quantity}
+                        price={item.price}
+                        total={item.price}
+                    />)
+                }
+            </ul>
+           
+            <div className={styles.container}>
+                <span>Total Amount: </span>
+                <span>${totalPrice.toFixed(2)}{''}</span>
             </div>
             <div className={styles.actions}>
                 <button className={styles.close} 

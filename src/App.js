@@ -8,13 +8,12 @@ import Cart from './components/Cart/Cart';
 
 const App = (props) => {
   const showCart = useSelector(state => state.ui.showCart);
-  // const closeCart = useSelector(state => state.ui.showCart);
 
 
   return (
     <Fragment>
       {!showCart && <Cart /> }
-      
+      {/* <Cart /> */}
       {/* <Header onShowOverlay={showOverlayHandler} /> */}
       <Header/>
       <main>
